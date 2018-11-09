@@ -37,7 +37,7 @@
 
   <div class="field">
     <%= form.label :duelist_id %>
-    <%= form.text_field :duelist_id, :value => @card.duelist.id %>
+    <%= form.text_field :duelist_id, :value => @card.try(:duelist_id) rescue nil  %>
   </div>
 
   <div class="actions">
