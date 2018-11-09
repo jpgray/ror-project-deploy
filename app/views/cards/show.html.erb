@@ -68,5 +68,21 @@
 <% end %>
 
 <p><span data-tooltip aria-haspopup="true" class="has-tip" id="has-tip" title="Yes!">Should I post a comment?</span></p>
-
+<script type="text/javascript">
+  if (typeof thumbs == "undefined") {
+  const thumbs = document.getElementById("thumbs_Up");
+  const unhideSomething = (SOMETHING) => SOMETHING.style.visibility="visible";
+  const hideSomething = (SOMETHING) => SOMETHING.style.visibility="hidden";
+  const hideThumbs = () => hideSomething(thumbs);
+  const hideThumbsTimer = (TIMEOUT) => setTimeout(hideThumbs, TIMEOUT);
+  const thumbsUp = () => {
+    unhideSomething(thumbs);
+    thumbs.src="https://media1.tenor.com/images/9e44ac46aa2e28be154810be63f661a7/tenor.gif?itemid=7815642";
+    hideThumbsTimer(1200);
+  }
+  //
+  const clickHelp = document.getElementById("has-tip")
+  clickHelp.addEventListener("click", thumbsUp);
+  }
+</script>
 <!-- </div> -->
