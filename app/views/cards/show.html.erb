@@ -16,19 +16,57 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @card.image %>
+<img src="<%= @card.picture %>" class="card-display">
 </p>
-
+<br>
 <p>
-  <strong>User:</strong>
-  <%= @card.user %>
+  <strong>By User:</strong>
+  <%= @card.user.username %>
 </p>
 
 <p>
   <strong>Duelist:</strong>
-  <%= @card.duelist %>
+  <%= @card.duelist.name %>
+  <%= link_to 'Show', @card.duelist, :class => "button info radius tiny" %>
 </p>
+<div class="show-action">
+<% if current_user == @card.user %>
+<%= link_to 'Edit', edit_card_path(@card), :class => "button secondary radius tiny" %>
+<% end %>
+<%= link_to 'Back', cards_path, :class => "button secondary radius tiny" %>
+</div>
 
-<%= link_to 'Edit', edit_card_path(@card) %> |
-<%= link_to 'Back', cards_path %>
+<%= render 'comments/comments' %>
+
+<h3> Add Comment </h3>
+
+<!-- <div class="form_field_div"> -->
+<%= form_for([@card, @card.comments.build]) do |form| %>
+
+<div class="field">
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+</div>
+
+<div class="field">
+  <%= form.label :body %>
+  <%= form.text_area :body %>
+</div>
+
+<div class="field">
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+</div>
+
+<div class="field">
+  <%= form.hidden_field :card_id, :value => @card.id %>
+</div>
+
+<div class="actions">
+  <%= form.submit({:class => 'button success radius tiny'}) %>
+
+</div>
+<% end %>
+
+<p><span data-tooltip aria-haspopup="true" class="has-tip" id="has-tip" title="Yes!">Should I post a comment?</span></p>
+
+<!-- </div> -->

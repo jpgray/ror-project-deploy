@@ -27,21 +27,19 @@
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= form.label :picture %>
+    <%= form.text_field :picture %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
 
   <div class="field">
-    <%= form.label :duelist_id %>
-    <%= form.text_field :duelist_id %>
+    <%= form.hidden_field :duelist_id, :value => @card.duelist_id %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit({:class => 'button success radius tiny'}) %>
   </div>
 <% end %>
