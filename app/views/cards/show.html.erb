@@ -27,13 +27,13 @@
 <p>
   <strong>Duelist:</strong>
   <%= @card.duelist.name %>
-  <%= link_to 'Show', @card.duelist, :class => "button info radius tiny" %>
+  <%= link_to 'Show', @card.duelist, :class => "btn btn-info btn-sm" %>
 </p>
 <div class="show-action">
 <% if current_user == @card.user %>
-<%= link_to 'Edit', edit_card_path(@card), :class => "button secondary radius tiny" %>
+<%= link_to 'Edit', edit_card_path(@card), :class => "btn btn-secondary btn-sm" %>
 <% end %>
-<%= link_to 'Back', cards_path, :class => "button secondary radius tiny" %>
+<%= link_to 'Back', cards_path, :class => "btn btn-secondary btn-sm" %>
 </div>
 
 <%= render 'comments/comments' %>
@@ -62,7 +62,7 @@
 </div>
 
 <div class="actions">
-  <%= form.submit({:class => 'button success radius tiny'}) %>
+  <%= form.submit({:class => 'btn btn-success btn-sm'}) %>
 
 </div>
 <% end %>
