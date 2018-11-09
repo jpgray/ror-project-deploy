@@ -33,11 +33,11 @@
 
   <div class="field">
     <%= f.label :username %>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, autocomplete: "username" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update", :class => "button success radius tiny" %>
+    <%= f.submit "Update", :class => "btn btn-success btn-sm" %>
   </div>
 <% end %>
 
@@ -45,4 +45,4 @@
 
 <p>Unhappy? Sorry!</p>
 
-<%= link_to "Back", :back, :class => "button info radius tiny" %>
+<%= link_to "Back", :back, :class => "btn btn-secondary btn-sm" %>
