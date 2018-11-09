@@ -11,6 +11,8 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.json
   def show
+    @comments = Comment.where(:card_id == @card.id)
+    @user = User.find(current_user.id)
   end
 
   # GET /cards/new
@@ -70,6 +72,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:name, :atk, :def, :image, :user_id, :duelist_id)
+      params.require(:card).permit(:name, :atk, :def, :picture, :user_id, :duelist_id)
     end
 end
