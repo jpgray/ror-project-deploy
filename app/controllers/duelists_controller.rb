@@ -11,6 +11,7 @@ class DuelistsController < ApplicationController
   # GET /duelists/1
   # GET /duelists/1.json
   def show
+    @cards = Card.where(:duelist_id == @duelist.id)
   end
 
   # GET /duelists/new
@@ -20,6 +21,9 @@ class DuelistsController < ApplicationController
 
   # GET /duelists/1/edit
   def edit
+    if current_user != @duelist.user
+      redirect_to @duelist
+    end
   end
 
   # POST /duelists
@@ -70,6 +74,6 @@ class DuelistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def duelist_params
-      params.require(:duelist).permit(:name, :age, :favourite_card, :image, :user_id)
+      params.require(:duelist).permit(:name, :age, :rating, :favourite_card, :picture, :user_id)
     end
 end
