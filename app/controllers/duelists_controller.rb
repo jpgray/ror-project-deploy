@@ -74,6 +74,6 @@ class DuelistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def duelist_params
-      params.require(:duelist).permit(:name, :age, :rating, :favourite_card, :picture, :user_id)
+      params.require(:duelist).permit(:name, :age, :favourite_card, :image, :user_id)
     end
 end
