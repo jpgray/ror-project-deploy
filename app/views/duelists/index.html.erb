@@ -21,11 +21,11 @@
         <td><%= duelist.name %></td>
         <td><%= duelist.age %></td>
         <td><%= duelist.favourite_card %></td>
-        <td><%= duelist.user.username %></td>
-        <td><%= link_to 'Show', duelist, :class => "button info radius tiny" %></td>
+        <td><%= duelist.user.email %></td>
+        <td><%= link_to 'Show', duelist, :class => "btn btn-info btn-sm" %></td>
         <% if current_user == duelist.user %>
-        <td><%= link_to 'Edit', edit_duelist_path(duelist), :class => "button secondary radius tiny" %></td>
-        <td><%= link_to 'Destroy', duelist, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button alert radius tiny" %></td>
+        <td><%= link_to 'Edit', edit_duelist_path(duelist), :class => "btn btn-secondary btn-sm" %></td>
+        <td><%= link_to 'Destroy', duelist, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %></td>
         <% end %>
       </tr>
     <% end %>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Duelist', new_duelist_path, :class => "button success radius tiny" %>
+<%= link_to 'New Duelist', new_duelist_path, :class => "btn btn-success btn-sm" %>
