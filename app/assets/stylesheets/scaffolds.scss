@@ -20,7 +20,7 @@ body {
   background-color: rgba(41, 34, 33, 0.54);
 }
 
-form {
+.form-control, .field {
   color: floralwhite;
 }
 .form_field_div, form {
@@ -33,6 +33,9 @@ form {
   margin-left: auto;
   margin-right: auto;
   background-color: rgba(251, 158, 131, 0);
+  color: rgb(135, 226, 173);
+
+
 }
 
 p, h3, h2 {
